@@ -1,10 +1,10 @@
-package springMvcHibernate.dao;
+package springMvcHibernate.repository;
 
 import springMvcHibernate.models.User;
 
 import java.util.List;
 
-public interface UserDao {
+public interface UserRepository {
 
     List<User> getUsers();
 
@@ -13,5 +13,4 @@ public interface UserDao {
     User getUser(long id);
 
     void deleteUser(long id);
-
 }

@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class UserDaoImp implements UserDao {
 
-    @Autowired
+//    @Autowired
     private SessionFactory sessionFactory;
 
     @Override
@@ -31,17 +31,17 @@ public class UserDaoImp implements UserDao {
 
     @Override
     @Transactional
-    public void deleteUser(int id) {
+    public void deleteUser(long id) {
 
         sessionFactory.getCurrentSession().createQuery("DELETE User where id = :id")
-                .setParameter("id", (long) id).executeUpdate();
+                .setParameter("id", id).executeUpdate();
     }
 
     @Override
     @Transactional
-    public User getUser(int id) {
+    public User getUser(long id) {
 
-        User user = sessionFactory.getCurrentSession().get(User.class, (long) id);
+        User user = sessionFactory.getCurrentSession().get(User.class, id);
 
         return user;
     }

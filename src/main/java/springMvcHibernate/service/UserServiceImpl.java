@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import springMvcHibernate.dao.UserDao;
 import springMvcHibernate.models.User;
+import springMvcHibernate.repository.UserRepository;
 
 import java.util.List;
 
@@ -11,26 +12,26 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDao userDAO;
+    private UserRepository userRepository;
 
     @Override
     public List<User> getUsers() {
-        return userDAO.getUsers();
+        return userRepository.getUsers();
     }
 
     @Override
     public void save(User user) {
-        userDAO.save(user);
+        userRepository.save(user);
     }
 
     @Override
-    public User getUser(int id) {
-        return userDAO.getUser(id);
+    public User getUser(long id) {
+        return userRepository.getUser(id);
     }
 
     @Override
-    public void deleteUser(int id) {
-        userDAO.deleteUser(id);
+    public void deleteUser(long id) {
+        userRepository.deleteUser(id);
     }
 
 }
