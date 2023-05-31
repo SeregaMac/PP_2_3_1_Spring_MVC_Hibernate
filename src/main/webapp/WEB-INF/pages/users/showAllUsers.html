@@ -20,12 +20,12 @@
         <td th:text="${user.getName()}"/>
         <td th:text="${user.getSurname()}"/>
         <td th:text="${user.getAge()}"/>
-        <td><a th:href="@{/update/{id}(id=${user.getId()})}" th:text="Update">Update</a>
-            <a th:href="@{/delete/{id}(id=${user.getId()})}" th:text="Delete">Delete</a>
+        <td><button th:href="@{/update/{id}(id=${user.getId()})}" th:text="Update">Update</button>
+            <button th:href="@{/delete/{id}(id=${user.getId()})}" th:text="Delete">Delete</button>
         </td>
     </tr>
 </table>
 <br>
-<input type="button" value="Add" onclick="window.location.href = 'addUser'">
+<button value="Add" onclick="window.location.href = 'addUser'" >add</button>
 </body>
 </html>
