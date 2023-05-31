@@ -9,14 +9,12 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column
     private String name;
     @Column
     private String surname;
     @Column
     private int age;
-
 
     public User() {
     }

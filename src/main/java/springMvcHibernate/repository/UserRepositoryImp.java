@@ -31,10 +31,8 @@ public class UserRepositoryImp implements UserRepository {
     }
 
     @Override
-    public void deleteUser(long id){
+    public void deleteUser(long id) {
         User user = entityManager.find(User.class, id);
         entityManager.remove(user);
-
-
     }
 }

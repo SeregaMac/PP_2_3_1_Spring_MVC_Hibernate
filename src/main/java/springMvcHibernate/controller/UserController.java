@@ -20,7 +20,6 @@ public class UserController {
 
     @GetMapping(value = "/")
     public String showUsers(Model model) {
-
         List<User> listUsers = userServiceImpl.getUsers();
         model.addAttribute("users", listUsers);
         return "users/showAllUsers";
@@ -28,35 +27,30 @@ public class UserController {
 
     @GetMapping("/addUser")
     public String addUser(Model model) {
-
         model.addAttribute("user", new User());
         return "users/addUser";
     }
 
     @RequestMapping("/saveUser")
     public String saveUser(@ModelAttribute("user") User user) {
-
         userServiceImpl.save(user);
         return "redirect:/";
     }
 
     @GetMapping("/update/{id}")
     public String updateUser(@PathVariable("id") long id, Model model) {
-
         model.addAttribute("user", userServiceImpl.getUser(id));
         return "users/updateUser";
     }
 
     @RequestMapping("/edit")
-    public String edit(@ModelAttribute("user") User user){
-
+    public String edit(@ModelAttribute("user") User user) {
         userServiceImpl.save(user);
         return "redirect:/";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") long id, Model model) {
-
         userServiceImpl.deleteUser(id);
         return "redirect:/";
     }

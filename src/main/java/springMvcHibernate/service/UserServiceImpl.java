@@ -2,7 +2,6 @@ package springMvcHibernate.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import springMvcHibernate.dao.UserDao;
 import springMvcHibernate.models.User;
 import springMvcHibernate.repository.UserRepository;
 
@@ -33,5 +32,4 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(long id) {
         userRepository.deleteUser(id);
     }
-
 }
