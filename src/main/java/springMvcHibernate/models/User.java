@@ -1,6 +1,9 @@
 package springMvcHibernate.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table
@@ -9,10 +12,15 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty(message = "Введите имя")
+    @Size(min = 3, max = 12, message = "Размер имени от 3 до 12")
     @Column
     private String name;
+    @NotEmpty(message = "Введите фамилию")
+    @Size(min = 3, max = 12, message = "Размер фамилии от 3 до 12")
     @Column
     private String surname;
+    @Min(value = 7, message = "Количество лет не должно быть меньше 7")
     @Column
     private int age;
 
