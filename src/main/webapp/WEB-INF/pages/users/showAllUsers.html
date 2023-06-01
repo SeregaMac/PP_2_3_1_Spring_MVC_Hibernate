@@ -14,14 +14,22 @@
         <th>Name</th>
         <th>Surname</th>
         <th>age</th>
-        <th>Options</th>
+        <th></th>
+        <th></th>
     </tr>
     <tr th:each="user : ${users}">
         <td th:text="${user.getName()}"/>
         <td th:text="${user.getSurname()}"/>
         <td th:text="${user.getAge()}"/>
-        <td><button th:href="@{/update/{id}(id=${user.getId()})}" th:text="Update">Update</button>
-            <button th:href="@{/delete/{id}(id=${user.getId()})}" th:text="Delete">Delete</button>
+        <td>
+            <form th:method="GET" th:action="@{/update/{id}(id=${user.getId()})}">
+                <input type="submit" value="Update">
+            </form>
+        </td>
+        <td>
+            <form th:method="POST" th:action="@{/delete/{id}(id=${user.getId()})}">
+                <input type="submit" value="Delete">
+            </form>
         </td>
     </tr>
 </table>

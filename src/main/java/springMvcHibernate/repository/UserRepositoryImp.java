@@ -9,7 +9,6 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-@Transactional
 public class UserRepositoryImp implements UserRepository {
 
     @PersistenceContext
@@ -22,7 +21,7 @@ public class UserRepositoryImp implements UserRepository {
 
     @Override
     public void save(User user) {
-        entityManager.persist(user);
+        entityManager.merge(user);
     }
 
     @Override
